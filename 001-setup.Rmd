@@ -1,0 +1,66 @@
+---
+title: "Initial Setup"
+date: "Last Updated: `r format(Sys.Date(), format = '%B %d, %Y')`"
+output:
+  html_document:
+    code_folding: hide
+    toc: true
+    toc_float: true
+    toc_depth: 5
+---
+
+Stephanie Lobaugh
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, results = FALSE)
+```
+
+# Raw data import and setup
+
+```{r import}
+library(biostatR)
+library(tidyverse)
+library(here)
+library(styler)
+library(labelled)
+library(openxlsx)
+
+# Set gtsummary theme
+my_theme <- list(
+  "pkgwide-fn:pvalue_fun" = function(x) gtsummary::style_pvalue(x, digits = 2),
+  "pkgwide-fn:prependpvalue_fun" = function(x) gtsummary::style_pvalue(x, digits = 2, prepend_p = TRUE),
+  "tbl_summary-fn:percent_fun" = function(x) paste0(round(x*100)),
+  "tbl_summary-arg:statistic" = list(all_continuous() ~ "{median} [{min} \U2013 {max}]",
+                                       all_categorical() ~ "{n} ({p}%)"),
+  "tbl_summary-arg:missing_text" = "Missing",
+  "tbl_summary-fn:addnl-fn-to-run" = "bold_labels"
+)
+set_gtsummary_theme(my_theme)
+
+# create path to secure data folder
+path_data <- readr::read_lines(here::here("path_data.txt"), skip_empty_rows = TRUE)
+
+# import raw data
+df_raw <-
+  readxl::read_excel(
+    path = bstfun::path_data(path = path_data, "dataname.xlsx"),
+    sheet = "data"
+  ) %>%
+  janitor::clean_names(case = "all_caps") %>% # uppercase col names
+  mutate(across(where(lubridate::is.POSIXt), lubridate::as_date)) %>% # use lubridates
+  mutate_if(is.logical, as.numeric)
+  
+
+```
+
+
+
+# Save analytic data
+
+```{r save}
+
+saveRDS(
+  object = df_main,
+  file = bstfun::path_data(path = path_data, "df_main.Rds")
+)
+```

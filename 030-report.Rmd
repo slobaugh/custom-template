@@ -1,0 +1,115 @@
+---
+title: "Report"
+date: "Last Updated: `r format(Sys.Date(), format = '%B %d, %Y')`"
+knit: (function(input, ...) {
+    rmarkdown::render(
+      input,
+      output_file =  here::here(glue::glue('030-report_{Sys.Date()}.html')),
+      envir = globalenv()
+    )
+  })
+output:
+  html_document:
+    toc: true
+    toc_float: false
+    toc_depth: 6
+  csl: "`r here::here('templates/european-urology.csl')`"
+---
+
+Stephanie Lobaugh
+
+<!-- Uncomment the CSS code below to expand the width of the rendered file such that tables can fill up the entire window of the html document. -->
+<!-- <style> -->
+<!-- .main-container { -->
+<!--   max-width: unset; -->
+<!-- } -->
+<!-- </style> -->
+
+```{r setup, include=FALSE}
+
+# set chunk defaults
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+
+knitr::opts_chunk$set(fig.width=8, fig.height=10) 
+```
+
+```{r import, include=FALSE}
+library(biostatR)
+library(tidyverse)
+library(captioner)
+
+# setting MSK ggplot theme and color palette
+theme_set(mskRvis::theme_biostat())
+mskRvis::set_msk_palette()
+
+# create path to secure data folder
+path_data <- readr::read_lines(here::here("path_data.txt"), skip_empty_rows = TRUE)
+
+# importing master analytic data set(s)
+df_main <- readRDS(file = bstfun::path_data(path = path_data, "data.Rds"))
+
+# Import analysis result objects here
+load(bstfun::path_data(path = path_data, "020-analysis.RData"))
+
+# List packages to cite
+packages_to_cite <- c("gtsummary","tidyverse","irr","boot")
+```
+
+```{r inline_text, include=FALSE, echo=FALSE}
+# define complex inline-reporting objects here
+
+```
+
+
+```{r captions, include = FALSE}
+## Setting up Table and Fig numberings ------------------
+tbl_cap = captioner(prefix = "Table")
+fig_cap = captioner(prefix = "Figure")
+
+## table captions --------------
+  tbl_cap("tbl_table1", "Patient characteristics")
+  
+## figure captions ------------------------------------
+  fig_cap("fig_boxplot", "Boxplot title")
+  
+## To refer to table/fig in the text ------------------------------------
+  # Function to reference table in text
+  f.ref <- function(x) {
+    stringr::str_extract(tbl_cap(x), "[^:]*")
+  }
+
+  # Function to reference figure in text
+  f.ref.fig <- function(x) {
+    stringr::str_extract(fig_cap(x), "[^:]*")
+  }
+```
+
+*Output generated using the following dataset(s) received `r readr::read_lines(here::here("data_date.txt"), n_max = 1)`: 'datafile name'*
+ 
+# **Study information & methods**
+
+Relevant project information.
+
+**Statistical methods**
+Write statistical methods here.
+
+All analyses were conducted using `r cite_r(pkgs = packages_to_cite, add_citation = FALSE)`.
+
+# **Results**
+
+## `r tbl_cap('tbl_table1')`
+```{r, table1}
+
+```
+
+<br>
+<br>
+
+# **References** 
+```{r, refs}
+
+# If not using the csl parameter in the YAML, can cite packages using the code below.
+# packages_to_cite %>% 
+#   purrr::map(.f = ~citation(.x))
+```
+
