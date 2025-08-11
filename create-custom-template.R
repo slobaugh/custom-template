@@ -49,19 +49,19 @@ my_template <-
       glue = TRUE
     )),
     # template for Setup script
-    report = rlang::expr(list(
+    script_setup = rlang::expr(list(
       template_filename = here::here("001-setup.Rmd"),
       filename = "001-setup.Rmd",
       glue = TRUE
     )),
     # template for Analysis script
-    report = rlang::expr(list(
+    script_analysis = rlang::expr(list(
       template_filename = here::here("020-analysis.Rmd"),
       filename = "020-analysis.Rmd",
       glue = TRUE
     )),
     # template for Report script
-    report = rlang::expr(list(
+    script_report = rlang::expr(list(
       template_filename = here::here("030-report.Rmd"),
       filename = "030-report.Rmd",
       glue = TRUE
