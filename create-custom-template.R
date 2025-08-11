@@ -27,11 +27,11 @@ my_template <-
     # path_data text file
     path_data_file = rlang::expr(list(
       template_filename = here::here("path_data.txt"),
-      filename = "path_data",
+      filename = "path_data.txt",
       glue = TRUE
     )),
     # data_date text file
-    path_data_file = rlang::expr(list(
+    data_date_file = rlang::expr(list(
       template_filename = here::here("data_date.txt"),
       filename = "data_date.txt",
       glue = TRUE
