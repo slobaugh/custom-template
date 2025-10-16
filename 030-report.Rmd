@@ -13,12 +13,13 @@ output:
     toc: true
     toc_float: false
     toc_depth: 6
-  csl: "`r here::here('templates/european-urology.csl')`"
+bibliography: "`r here::here('templates/references.bib')`"
+csl: "`r here::here('templates/european-urology.csl')`"
 ---
 
 Stephanie Lobaugh
 
-<!-- Uncomment the CSS code below to expand the width of the rendered file such that tables can fill up the entire window of the html document. -->
+<!-- Uncomment the CSS code below to expand the width of the rendered file such that tables can fill up the entire window of the html document. If you want to use this code, make sure `toc_float` is set to false in the YAML -->
 <!-- <style> -->
 <!-- .main-container { -->
 <!--   max-width: unset; -->

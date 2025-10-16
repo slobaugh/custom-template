@@ -8,7 +8,7 @@ library(starter)
 source("H:/Biostatistics/Lobaugh/GitHub/custom-template/create-custom-template.R")
 
 # specify local repo folder location
-project_path <- file.path("H:/Biostatistics/Lobaugh/GitHub/repo-Epstein-Peterson-Brexu-MCL")
+project_path <- file.path("H:/Biostatistics/Sarah_Stephanie/test")
 
 # Create project
 starter::create_project(

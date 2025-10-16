@@ -46,7 +46,13 @@ my_template <-
     citation_template = rlang::expr(list(
       template_filename = here::here("templates/european-urology.csl"),
       filename = "templates/european-urology.csl",
-      glue = TRUE
+      glue = FALSE
+    )),
+    # templates for formatting citations. Not sure what this .bib file does.
+    bib_template = rlang::expr(list(
+      template_filename = here::here("templates/references.bib"),
+      filename = "templates/references.bib",
+      glue = FALSE
     )),
     # template for Setup script
     script_setup = rlang::expr(list(
