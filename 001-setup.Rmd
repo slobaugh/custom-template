@@ -12,7 +12,7 @@ output:
 Stephanie Lobaugh
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, results = FALSE)
+knitr::opts_chunk$set(include = FALSE)
 ```
 
 # Raw data import and setup
