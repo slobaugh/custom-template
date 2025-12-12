@@ -38,6 +38,7 @@ my_theme <- list(
   "tbl_summary-fn:addnl-fn-to-run" = "bold_labels"
 )
 set_gtsummary_theme(my_theme)
+theme_gtsummary_compact()
 
 # create path to secure data folder
 path_data <- readr::read_lines(here::here("path_data.txt"), skip_empty_rows = TRUE)

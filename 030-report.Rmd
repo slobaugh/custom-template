@@ -42,6 +42,7 @@ library(captioner)
 # setting MSK ggplot theme and color palette
 theme_set(mskRvis::theme_biostat())
 mskRvis::set_msk_palette()
+theme_gtsummary_compact()
 
 # create path to secure data folder
 path_data <- readr::read_lines(here::here("path_data.txt"), skip_empty_rows = TRUE)
