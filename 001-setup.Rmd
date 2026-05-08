@@ -54,6 +54,15 @@ df_raw <-
 
 ```
 
+# Check out raw data
+```{r}
+
+# Visualize missing data
+naniar::gg_miss_var(df_raw)
+naniar::vis_miss(df_raw) + 
+  scale_x_discrete(position = "bottom") +
+  theme(axis.text.x = element_text(angle = 60, hjust = 1, vjust = 1))
+```
 
 
 # Save analytic data
