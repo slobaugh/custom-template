@@ -8,13 +8,13 @@ my_template <-
   list(
     # README
     readme = rlang::expr(list(
-      template_filename = here::here("README.md"),
+      template_filename = here::here("template-files/README.md"),
       filename = "README.md",
       glue = TRUE
     )),
     # Project summary form
     project_summary = rlang::expr(list(
-      template_filename = here::here("project_summary.md"),
+      template_filename = here::here("template-files/project_summary.md"),
       filename = "project_summary.md",
       glue = TRUE
     )),
@@ -26,49 +26,49 @@ my_template <-
     )),
     # path_data text file
     path_data_file = rlang::expr(list(
-      template_filename = here::here("path_data.txt"),
+      template_filename = here::here("template-files/path_data.txt"),
       filename = "path_data.txt",
       glue = TRUE
     )),
     # data_date text file
     data_date_file = rlang::expr(list(
-      template_filename = here::here("data_date.txt"),
+      template_filename = here::here("template-files/data_date.txt"),
       filename = "data_date.txt",
       glue = TRUE
     )),
     # gitignore
     gitignore = rlang::expr(list(
-      template_filename = here::here(".gitignore"),
+      template_filename = here::here("template-files/.gitignore"),
       filename = ".gitignore",
       glue = TRUE
     )),
     # templates for formatting citations. This is from the European Urology journal.
     citation_template = rlang::expr(list(
-      template_filename = here::here("templates/european-urology.csl"),
+      template_filename = here::here("template-files/templates/european-urology.csl"),
       filename = "templates/european-urology.csl",
       glue = FALSE
     )),
     # templates for formatting citations. Not sure what this .bib file does.
     bib_template = rlang::expr(list(
-      template_filename = here::here("templates/references.bib"),
+      template_filename = here::here("template-files/templates/references.bib"),
       filename = "templates/references.bib",
       glue = FALSE
     )),
     # template for Setup script
     script_setup = rlang::expr(list(
-      template_filename = here::here("001-setup.Rmd"),
+      template_filename = here::here("template-files/001-setup.Rmd"),
       filename = "001-setup.Rmd",
       glue = TRUE
     )),
     # template for Analysis script
     script_analysis = rlang::expr(list(
-      template_filename = here::here("020-analysis.Rmd"),
+      template_filename = here::here("template-files/020-analysis.Rmd"),
       filename = "020-analysis.Rmd",
       glue = TRUE
     )),
     # template for Report script
     script_report = rlang::expr(list(
-      template_filename = here::here("030-report.Rmd"),
+      template_filename = here::here("template-files/030-report.Rmd"),
       filename = "030-report.Rmd",
       glue = TRUE
     ))
