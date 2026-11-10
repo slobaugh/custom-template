@@ -10,7 +10,7 @@
 Use the text saved in `path_data.txt` for the `path` argument in `bstfun::path_data(path = path_data, "filename"))`
 
 ## Project summary
-See `project_summary.md`.
+See [`project_summary.md`](insert link).
 
 ## Project log
 

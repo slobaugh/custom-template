@@ -8,7 +8,7 @@ library(starter)
 source("H:/Biostatistics/Lobaugh/GitHub/custom-template/create-custom-template.R")
 
 # specify local repo folder location
-project_path <- file.path("H:/Biostatistics/Sarah_Stephanie/test")
+project_path <- file.path("H:/Biostatistics/Radiology/Projects/For Stephanie/Github/Akin-ccRCC-radiomics")
 
 # Create project
 starter::create_project(
