@@ -35,7 +35,8 @@ knitr::opts_chunk$set(fig.width=8, fig.height=10)
 ```
 
 ```{r import, include=FALSE}
-library(biostatR)
+library(gtsummary)
+library(bstfun)
 library(tidyverse)
 library(captioner)
 

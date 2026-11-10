@@ -18,7 +18,8 @@ knitr::opts_chunk$set(include = FALSE)
 # Raw data import and setup
 
 ```{r import}
-library(biostatR)
+library(gtsummary)
+library(bstfun)
 library(tidyverse)
 library(here)
 library(styler)
