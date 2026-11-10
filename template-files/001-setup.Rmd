@@ -51,7 +51,19 @@ df_raw <-
   mutate(across(where(lubridate::is.POSIXt), lubridate::as_date)) %>% # use lubridates
   mutate_if(is.logical, as.numeric)
   
+# create functions 
+source(here::here("_functions.R"))
+```
 
+# Raw dataset source dataframe
+```{r}
+
+df_raw_data_filenames <- tibble(
+  name = c(
+    "Insert file name"
+  )
+) |> 
+  mutate(location = as.character(bstfun::path_data(path = path_data)))
 ```
 
 # Check out raw data
@@ -68,6 +80,12 @@ naniar::vis_miss(df_raw) +
 # Save analytic data
 
 ```{r save}
+
+# Save raw data source information
+saveRDS(
+  object = df_raw_data_filenames,
+  file = bstfun::path_data(path = path_data, "df_raw_data_filenames.Rds")
+)
 
 saveRDS(
   object = df_main,

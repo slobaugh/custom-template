@@ -50,11 +50,19 @@ path_data <- readr::read_lines(here::here("path_data.txt"), skip_empty_rows = TR
 # importing master analytic data set(s)
 df_main <- readRDS(file = bstfun::path_data(path = path_data, "data.Rds"))
 
+# import raw data source information
+df_raw_data_filenames <- readRDS(
+  bstfun::path_data(
+    path = path_data,
+    "df_raw_data_filenames.Rds"
+  )
+)
+
 # Import analysis result objects here
 load(bstfun::path_data(path = path_data, "020-analysis.RData"))
 
 # List packages to cite
-packages_to_cite <- c("gtsummary","tidyverse","irr","boot")
+packages_to_cite <- c("")
 ```
 
 ```{r inline_text, include=FALSE, echo=FALSE}
@@ -86,7 +94,17 @@ fig_cap = captioner(prefix = "Figure")
   }
 ```
 
-*Output generated using the following dataset(s) received `r readr::read_lines(here::here("data_date.txt"), n_max = 1)`: 'datafile name'*
+# **Data Sources**
+
+```{r data-sources}
+df_raw_data_filenames |>
+  gt::gt() |>
+  gt::tab_style(
+    style = gt::cell_text(weight = "bold"),
+    locations = gt::cells_column_labels()
+  ) |> 
+  my_gt_theme()
+```
  
 # **Study information & methods**
 

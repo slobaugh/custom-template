@@ -45,6 +45,9 @@ path_data <- readr::read_lines(here::here("path_data.txt"), skip_empty_rows = TR
 
 # importing master analytic data set(s)
 df_main <- readRDS(file = bstfun::path_data(path = path_data, "data.Rds"))
+
+# create functions 
+source(here::here("_functions.R"))
 ```
 
 # Analysis

@@ -18,12 +18,6 @@ my_template <-
       filename = "project_summary.md",
       glue = TRUE
     )),
-    # SAP
-    readme = rlang::expr(list(
-      template_filename = here::here("template-files/SAP.md"),
-      filename = "SAP.md",
-      glue = TRUE
-    )),
     # rproj
     rproj = rlang::expr(list(
       template_filename = system.file("project_templates/default_rproj.Rproj", package = "starter"),
@@ -76,6 +70,12 @@ my_template <-
     script_report = rlang::expr(list(
       template_filename = here::here("template-files/030-report.Rmd"),
       filename = "030-report.Rmd",
+      glue = TRUE
+    )),
+    # template for custom functions script
+    script_custom_functions = rlang::expr(list(
+      template_filename = here::here("template-files/_functions.R"),
+      filename = "_functions.R",
       glue = TRUE
     ))
   )
